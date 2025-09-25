@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Manali - Holiday Planner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Holiday Planner</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="goa.html">Goa</a></li>
+          <li class="nav-item"><a class="nav-link active" href="manali.html">Manali</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container mt-4">
+    <h1>🏔️ Manali</h1>
+    <p>Enjoy the scenic mountains, adventure sports, and relaxing nature.</p>
+
+
+    <!-- Activities -->
+    <div class="card p-3 mb-3">
+      <h3>Activities</h3>
+      <form id="activities">
+        <label><input type="checkbox" class="cost" value="1200"> Solang Valley Adventure (₹1200)</label><br>
+        <label><input type="checkbox" class="cost" value="1800"> Rohtang Pass Visit (₹1800)</label><br>
+        <label><input type="checkbox" class="cost" value="1000"> River Rafting (₹1000)</label><br>
+        <label><input type="checkbox" class="cost" value="1500"> Paragliding (₹1500)</label><br>
+      </form>
+    </div>
+
+
+    <!-- Accommodation & Transport -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card p-3 mb-3">
+          <h3>Accommodation</h3>
+          <select id="hotel" class="form-select cost">
+            <option value="0">Choose Hotel</option>
+            <option value="3500">Budget Hotel (₹3500)</option>
+            <option value="7500">Luxury Resort (₹7500)</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-3 mb-3">
+          <h3>Transport</h3>
+          <select id="transport" class="form-select cost">
+            <option value="0">Choose Transport</option>
+            <option value="4000">Flight (₹4000)</option>
+            <option value="2000">Train (₹2000)</option>
+            <option value="1200">Bus (₹1200)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Itinerary -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <a href="5daymanali.html" class="text-decoration-none">
+          <div class="card p-3" style="cursor:pointer;">
+            <h3>🗺 5-Day Itinerary</h3>
+            <p>Plan your exciting 5-day Manali trip.</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 mb-3">
+        <a href="10daymanali.html" class="text-decoration-none">
+          <div class="card p-3" style="cursor:pointer;">
+            <h3>🗺 10-Day Itinerary</h3>
+            <p>Explore an extended 10-day Manali adventure.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- Budget Tracker -->
+    <div class="card p-3 mb-3">
+      <h3>💰 Budget Tracker</h3>
+      <p>Total Estimated Cost: <b>₹<span id="total">0</span></b></p>
+    </div>
+  </div>
+
+
+  <script>
+    function updateTotal() {
+      let total = 0;
+      $(".cost:checked").each(function() {
+        total += parseInt($(this).val());
+      });
+      total += parseInt($("#hotel").val()) || 0;
+      total += parseInt($("#transport").val()) || 0;
+      $("#total").text(total);
+
+      // Save to localStorage
+      let activities = [];
+      $(".cost:checked").each(function() { activities.push($(this).val()); });
+      localStorage.setItem("activities", JSON.stringify(activities));
+      localStorage.setItem("hotel", $("#hotel").val());
+      localStorage.setItem("transport", $("#transport").val());
+      localStorage.setItem("totalBudget", total);
+    }
+
+    $(".cost, #hotel, #transport").on("change", updateTotal);
+    $(document).ready(function() {
+      // Load saved selections if present
+      let savedActivities = JSON.parse(localStorage.getItem("activities") || "[]");
+      $(".cost").each(function() {
+        if(savedActivities.includes($(this).val())) $(this).prop("checked", true);
+      });
+      $("#hotel").val(localStorage.getItem("hotel") || "0");
+      $("#transport").val(localStorage.getItem("transport") || "0");
+
+      updateTotal();
+    });
+  </script>
+</body>
+</html>

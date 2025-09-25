@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goa 5-Day Itinerary</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="mb-4 text-center">🗺 Goa 5-Day Itinerary</h1>
+    <hr class="mb-5">
+
+    <div id="itineraryContent"></div>
+
+    <div class="text-center mt-4">
+      <h4>Total Estimated Cost: <span class="text-info fw-bold">₹15,000</span></h4>
+    </div>
+  </div>
+
+  <script>
+  const itineraryData = {
+    "5days": [
+      {
+        "day": "Day 1: Explore Old Goa",
+        "activities": [
+          "Basilica Of Bom Jesus",
+          "Church of St. Francis of Assisi",
+          "Se Cathedral",
+          "Museum of Christian Art",
+          "Meal At River Aisle"
+        ],
+        "description": "If you want to experience the real authentic Goa and delve deep into its history, well then Old Goa is where you need to start your journey..."
+      },
+      {
+        "day": "Day 2: Explore North Goa, Its Beaches & Night Life",
+        "activities": [
+          "Explore Little Vagator Beach",
+          "Indulge in water sports",
+          "Visit Chapora Fort",
+          "Have A Meal At Thalassa",
+          "Go Partying At Cohiba",
+          "Go To Anjuna Night Market"
+        ],
+        "description": "North Goa is that part of Goa that’s most spoken about. From forts to shimmering shorelines, cutesy eateries to beach shacks – North Goa has everything..."
+      },
+      {
+        "day": "Day 3: Explore Panjim & Dona Paula",
+        "activities": [
+          "Get Mesmerised By The Beauty Of Dona Paula",
+          "Chill at Miramar Beach",
+          "Eat At Ritz Classic",
+          "Shop At Panjim Market",
+          "Visit the Floating Casinos"
+        ],
+        "description": "Panjim is the very heart of Goa. It’s the perfect mix of beaches, shopping, food, architecture, narrow winding lanes and more..."
+      },
+      {
+        "day": "Day 4: Head To South Goa",
+        "activities": [
+          "Visit Salaulim Dam",
+          "Cabo De Rama",
+          "Eat At Martin’s",
+          "Explore Palolem & Agonda",
+          "Enjoy A Silent Party"
+        ],
+        "description": "South Goa is that part of Goa that went abroad and got firang wala education. Start your day by visiting the beautiful Salaulim Dam..."
+      },
+      {
+        "day": "Day 5: Chill In Goa Like The Locals",
+        "activities": ["Do Nothing"],
+        "description": "You know what makes Goa so unique? It’s the susegaad life. Susegaad literally translates to lazing around and doing nothing..."
+      }
+    ]
+  };
+
+  $(document).ready(function(){
+    const days = itineraryData["5days"];
+    let html = "";
+
+    days.forEach(item => {
+      html += `
+        <div class="card mb-4 shadow-sm rounded-3">
+          <div class="card-body">
+            <h3 class="card-title display-6 text-info">${item.day}</h3>
+            <ul class="list-group list-group-flush my-3">
+              ${item.activities.map(act => `<li class="list-group-item">${act}</li>`).join('')}
+            </ul>
+            <p class="card-text text-muted">${item.description}</p>
+          </div>
+        </div>
+      `;
+    });
+
+    $("#itineraryContent").html(html);
+  });
+  </script>
+</body>
+</html>

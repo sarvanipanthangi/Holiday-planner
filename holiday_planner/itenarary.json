@@ -1,0 +1,54 @@
+{
+  "5days": [
+    {
+      "day": "Day 1: Explore Old Goa",
+      "activities": [
+        "Basilica Of Bom Jesus",
+        "Church of St. Francis of Assisi",
+        "Se Cathedral",
+        "Museum of Christian Art",
+        "Meal At River Aisle"
+      ],
+      "description": "If you want to experience the real authentic Goa and delve deep into its history, well then Old Goa is where you need to start your journey. From rustic red stoned relics, white washed churches and beautiful beaches, hop on to your scooter and get ready to zoom off. Start your day off at the Basilica Of Bom Jesus. This gorgeous Goa UNESCO World Heritage Site is indeed a sight to behold. This also holds the remains of St Francis Xavier, a Roman Catholic saint whose body has still not decayed even today."
+    },
+    {
+      "day": "Day 2: Explore North Goa, Its Beaches & Night Life",
+      "activities": [
+        "Explore Little Vagator Beach",
+        "Indulge in water sports",
+        "Visit Chapora Fort",
+        "Have A Meal At Thalassa",
+        "Go Partying At Cohiba",
+        "Go To Anjuna Night Market"
+      ],
+      "description": "North Goa is that part of Goa that’s most spoken about. From forts to shimmering shorelines, cutesy eateries to beach shacks – North Goa has everything. Start your day by exploring Little Vagator beach and indulging in some water sports..."
+    },
+    {
+      "day": "Day 3: Explore Panjim & Dona Paula",
+      "activities": [
+        "Get Mesmerised By The Beauty Of Dona Paula",
+        "Chill at Miramar Beach",
+        "Eat At Ritz Classic",
+        "Shop At Panjim Market",
+        "Visit the Floating Casinos"
+      ],
+      "description": "Panjim is the very heart of Goa. It’s the perfect mix of beaches, shopping, food, architecture, narrow winding lanes and more..."
+    },
+    {
+      "day": "Day 4: Head To South Goa",
+      "activities": [
+        "Visit Salaulim Dam",
+        "Cabo De Rama",
+        "Eat At Martin’s",
+        "Explore Palolem & Agonda",
+        "Enjoy A Silent Party"
+      ],
+      "description": "South Goa is that part of Goa that went abroad and got firang wala education. Start your day by visiting the beautiful Salaulim Dam..."
+    },
+    {
+      "day": "Day 5: Chill In Goa Like The Locals",
+      "activities": ["Do Nothing"],
+      "description": "You know what makes Goa so unique? It’s the susegaad life. Susegaad literally translates to lazing around and doing nothing..."
+    }
+  ]
+}

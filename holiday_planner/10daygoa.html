@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goa 10-Day Itinerary</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="mb-4 text-center">🗺 Goa 10-Day Itinerary</h1>
+    <hr class="mb-5">
+
+    <div id="itineraryContent"></div>
+
+    <div class="text-center mt-4">
+      <h4>Total Estimated Cost: <span class="text-info fw-bold">₹30,000 (Approx.)</span></h4>
+    </div>
+  </div>
+
+  <script>
+  const itineraryData = {
+    "10days": [
+      {
+        "day": "Day 1: Arrival & Relax",
+        "activities": [
+          "Arrive at Goa airport",
+          "Transfer to hotel/resort",
+          "Relax and enjoy resort amenities",
+          "Evening beach walk at Calangute"
+        ],
+        "description": "Ease into your Goa vacation by settling into your accommodation and taking in the serene beach views."
+      },
+      {
+        "day": "Day 2: North Goa Beaches and Forts",
+        "activities": [
+          "Visit Baga Beach and enjoy water sports",
+          "Explore Fort Aguada and Lighthouse",
+          "Lunch at a beach shack",
+          "Sunset at Chapora Fort"
+        ],
+        "description": "Experience the lively beaches and historical forts of North Goa."
+      },
+      {
+        "day": "Day 3: Old Goa Heritage Tour",
+        "activities": [
+          "Visit Basilica of Bom Jesus",
+          "Se Cathedral",
+          "Museum of Christian Art",
+          "Walk through Fontainhas Latin Quarter"
+        ],
+        "description": "Delve into Goa’s rich Portuguese heritage with visits to its iconic churches and heritage sites."
+      },
+      {
+        "day": "Day 4: South Goa Exploration",
+        "activities": [
+          "Relax at Palolem Beach",
+          "Visit Cabo De Rama Fort",
+          "Evening at Agonda Beach"
+        ],
+        "description": "Discover the tranquil and lush southern beaches far from the bustling north."
+      },
+      {
+        "day": "Day 5: Spice Plantation & Dudhsagar Waterfalls",
+        "activities": [
+          "Tour a spice plantation",
+          "Trek or jeep safari to Dudhsagar Waterfalls",
+          "Picnic lunch near waterfall"
+        ],
+        "description": "Explore Goa’s natural beauty and spice farms accompanied by a majestic waterfall visit."
+      },
+      {
+        "day": "Day 6: Leisure and Shopping Day",
+        "activities": [
+          "Shopping at Anjuna Flea Market",
+          "Relax at hotel/resort",
+          "Try local Goan cuisine"
+        ],
+        "description": "Unwind with shopping and savor authentic Goan flavors at leisure."
+      },
+      {
+        "day": "Day 7: Water Sports & Nightlife",
+        "activities": [
+          "Parasailing, jet skiing at Candolim Beach",
+          "Evening party at Tito’s or Mambo’s"
+        ],
+        "description": "Feel the adrenaline with exciting water sports, then dive into Goa’s vibrant nightlife."
+      },
+      {
+        "day": "Day 8: Cruise on Mandovi River",
+        "activities": [
+          "Sunset river cruise with live music",
+          "Dinner on board",
+          "Spot dolphins if lucky"
+        ],
+        "description": "Relax and enjoy a beautiful river cruise highlighting Goa’s scenic waterways."
+      },
+      {
+        "day": "Day 9: Explore Panjim & Casinos",
+        "activities": [
+          "Visit Panjim city market",
+          "Explore Boutique shops and cafes",
+          "Try luck at a floating casino"
+        ],
+        "description": "Experience Goa’s capital city culture, markets, and casino entertainment."
+      },
+      {
+        "day": "Day 10: Departure",
+        "activities": [
+          "Pack and check out",
+          "Last-minute shopping or beach stroll",
+          "Transfer to airport"
+        ],
+        "description": "Make the most of your last day with a relaxed morning before your journey home."
+      }
+    ]
+  };
+
+  $(document).ready(function(){
+    const days = itineraryData["10days"];
+    let html = "";
+
+    days.forEach(item => {
+      html += `
+        <div class="card mb-4 shadow-sm rounded-3">
+          <div class="card-body">
+            <h3 class="card-title display-6 text-info">${item.day}</h3>
+            <ul class="list-group list-group-flush my-3">
+              ${item.activities.map(act => `<li class="list-group-item">${act}</li>`).join('')}
+            </ul>
+            <p class="card-text text-muted">${item.description}</p>
+          </div>
+        </div>
+      `;
+    });
+
+    $("#itineraryContent").html(html);
+  });
+  </script>
+</body>
+</html>

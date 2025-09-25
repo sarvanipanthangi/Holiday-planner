@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Goa - Holiday Planner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Holiday Planner</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="goa.html">Goa</a></li>
+          <li class="nav-item"><a class="nav-link" href="manali.html">Manali</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1>🌴 Goa</h1>
+    <p>Experience the vibrant beaches, nightlife, and water sports.</p>
+
+    <!-- Activities -->
+    <div class="card p-3 mb-3">
+      <h3>Activities</h3>
+      <form id="activities">
+        <label><input type="checkbox" class="cost" value="1000"> Beach Party (₹1000)</label><br>
+        <label><input type="checkbox" class="cost" value="2000"> Water Sports (₹2000)</label><br>
+        <label><input type="checkbox" class="cost" value="1500"> Heritage Walk (₹1500)</label><br>
+        <label><input type="checkbox" class="cost" value="800"> Sunset Cruise (₹800)</label><br>
+      </form>
+    </div>
+
+    <!-- Accommodation & Transport -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card p-3 mb-3">
+          <h3>Accommodation</h3>
+          <select id="hotel" class="form-select cost">
+            <option value="0">Choose Hotel</option>
+            <option value="4000">Budget Hotel (₹4000)</option>
+            <option value="8000">Resort (₹8000)</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-3 mb-3">
+          <h3>Transport</h3>
+          <select id="transport" class="form-select cost">
+            <option value="0">Choose Transport</option>
+            <option value="3000">Flight (₹3000)</option>
+            <option value="1500">Train (₹1500)</option>
+            <option value="1000">Bus (₹1000)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Itinerary -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <a href="5daygoa.html" class="text-decoration-none">
+          <div class="card p-3" style="cursor:pointer;">
+            <h3>🗺 5-Day Itinerary</h3>
+            <p>See the plan for an exciting 5-day trip.</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 mb-3">
+        <a href="10daygoa.html" class="text-decoration-none">
+          <div class="card p-3" style="cursor:pointer;">
+            <h3>🗺 10-Day Itinerary</h3>
+            <p>Check out the itinerary for an extended 10-day stay.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Budget Tracker -->
+    <div class="card p-3 mb-3">
+      <h3>💰 Budget Tracker</h3>
+      <p>Total Estimated Cost: <b>₹<span id="total">0</span></b></p>
+    </div>
+  </div>
+
+  <script>
+    const itineraries = {
+      "5days": { cost: 15000 },
+      "10days": { cost: 30000 }
+    };
+
+    function updateTotal() {
+      let total = 0;
+
+      // Activities
+      $(".cost:checked").each(function() {
+        total += parseInt($(this).val());
+      });
+
+      // Hotel + Transport
+      total += parseInt($("#hotel").val());
+      total += parseInt($("#transport").val());
+
+      $("#total").text(total);
+
+      // Save to localStorage
+      let activities = [];
+      $(".cost:checked").each(function() { activities.push($(this).val()); });
+      localStorage.setItem("activities", JSON.stringify(activities));
+      localStorage.setItem("hotel", $("#hotel").val());
+      localStorage.setItem("transport", $("#transport").val());
+      localStorage.setItem("totalBudget", total);
+    }
+
+    $(".cost, #hotel, #transport").on("change", updateTotal);
+    $(document).ready(updateTotal);
+  </script>
+</body>
+</html>
